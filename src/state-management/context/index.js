@@ -20,6 +20,10 @@ const MamaProvider = ({ children }) => {
   const handleDarkMode = () => {
     return setDarkMode(!darkMode);
   };
+  const [drawerify, setDrawer] = useState({ right: false });
+  const toggleDrawer = (slide, open) => {
+    setDrawer({ ...drawerify, [slide]: open });
+  };
 
   const userLogin = (person) => {
     setUser(person);
@@ -32,7 +36,15 @@ const MamaProvider = ({ children }) => {
 
   return (
     <Infos.Provider
-      value={{ darkMode, handleDarkMode, user, userLogin, userLogout }}
+      value={{
+        darkMode,
+        handleDarkMode,
+        user,
+        userLogin,
+        userLogout,
+        drawerify,
+        toggleDrawer,
+      }}
     >
       {children}
     </Infos.Provider>

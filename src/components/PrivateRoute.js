@@ -4,7 +4,6 @@ import { useInfos } from '../state-management/context';
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { user } = useInfos();
-  console.log({ rest });
 
   return (
     <Route

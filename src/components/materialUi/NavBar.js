@@ -1,11 +1,13 @@
 import { AppBar, Box, IconButton, Switch, Toolbar, Typography } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { AccountCircle, Home, Menu, PhotoCamera, Videocam } from '@material-ui/icons';
+import { Menu } from '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useInfos } from '../../state-management/context';
+import Drawer from './Drawer';
+import menuItems from './MenuItems';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -72,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = () => {
-  const { darkMode, handleDarkMode, user } = useInfos();
+  const { darkMode, handleDarkMode, user, toggleDrawer } = useInfos();
 
   const classes = useStyles();
   return (
@@ -84,6 +86,7 @@ const NavBar = () => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={() => toggleDrawer('right', true)}
           >
             <Menu />
           </IconButton>
@@ -104,27 +107,15 @@ const NavBar = () => {
             />
           </div>
           <Box className={classes.items} component="div">
-            <NavLink exact to="/">
-              <IconButton>
-                <Home />
-              </IconButton>
-            </NavLink>
-            <NavLink to="/photos">
-              <IconButton>
-                <PhotoCamera />
-              </IconButton>
-            </NavLink>
-            <NavLink to="/videos">
-              <IconButton>
-                <Videocam />
-              </IconButton>
-            </NavLink>
-            <NavLink to="/private">
-              <IconButton>
-                <AccountCircle />
-              </IconButton>
-            </NavLink>
+            {menuItems.map((item) => (
+              <div key={item.id}>
+                <NavLink exact to={`${item.listPath}`}>
+                  <IconButton>{item.listIcon}</IconButton>
+                </NavLink>
+              </div>
+            ))}
           </Box>
+          <Drawer />
           <Switch checked={darkMode} onChange={handleDarkMode} />
         </Toolbar>
       </AppBar>
