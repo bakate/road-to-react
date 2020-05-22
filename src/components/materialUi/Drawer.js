@@ -25,7 +25,7 @@ const Drawerify = () => {
         {MenuItems.map((item) => (
           <ListItem button key={item.id}>
             <ListItemIcon color="secondary">{item.listIcon}</ListItemIcon>
-            <Link to={`${item.listPath}`}>
+            <Link to={`${item.listPath}`} style={{ textDecoration: 'none' }}>
               <ListItemText style={{ color: 'tomato' }}>
                 {item.listText}
               </ListItemText>

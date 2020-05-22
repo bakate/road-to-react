@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ReactQueryDevtools } from 'react-query-devtools/dist/react-query-devtools.development';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { MamaProvider } from './state-management/context';
 
 ReactDOM.render(
   <React.StrictMode>
+    <ReactQueryDevtools initialIsOpen={false} />
     <MamaProvider>
       <App />
     </MamaProvider>

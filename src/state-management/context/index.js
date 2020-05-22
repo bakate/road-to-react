@@ -24,6 +24,9 @@ const MamaProvider = ({ children }) => {
   const toggleDrawer = (slide, open) => {
     setDrawer({ ...drawerify, [slide]: open });
   };
+  const [pix, setPix] = useState([]);
+  const [videos, setVideos] = useState([]);
+  const [search, setSearch] = useState('Paris');
 
   const userLogin = (person) => {
     setUser(person);
@@ -44,6 +47,12 @@ const MamaProvider = ({ children }) => {
         userLogout,
         drawerify,
         toggleDrawer,
+        search,
+        setSearch,
+        pix,
+        setPix,
+        videos,
+        setVideos,
       }}
     >
       {children}

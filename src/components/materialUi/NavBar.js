@@ -1,4 +1,4 @@
-import { AppBar, Box, IconButton, Switch, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Box, debounce, IconButton, Switch, Toolbar, Typography } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { Menu } from '@material-ui/icons';
@@ -10,6 +10,7 @@ import Drawer from './Drawer';
 import menuItems from './MenuItems';
 
 const useStyles = makeStyles((theme) => ({
+  nav: { marginBottom: '2rem' },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -52,9 +53,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  inputRoot: {
-    color: 'primary',
-  },
+  // inputRoot: {
+  //   color: 'primary',
+  // },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -74,11 +75,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = () => {
-  const { darkMode, handleDarkMode, user, toggleDrawer } = useInfos();
+  const {
+    darkMode,
+    handleDarkMode,
+    user,
+    toggleDrawer,
+    search,
+    setSearch,
+  } = useInfos();
+
+  const findSomePix = (query) => {
+    setSearch(query);
+  };
+  const findButSlowly = debounce(findSomePix, 250);
 
   const classes = useStyles();
   return (
-    <Box component="nav">
+    <Box component="nav" className={classes.nav}>
       <AppBar position="sticky" color="default">
         <Toolbar>
           <IconButton
@@ -90,15 +103,22 @@ const NavBar = () => {
           >
             <Menu />
           </IconButton>
-          <Typography color="inherit" variant="h5" className={classes.title}>
-            {user.id ? `Welcome ${user.username}` : 'Hello'}
-          </Typography>
+          <NavLink to="/" style={{ textDecoration: 'none' }}>
+            <Typography color="inherit" variant="h5" className={classes.title}>
+              {user.id ? `Welcome ${user.username}` : 'Hello'}
+            </Typography>
+          </NavLink>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
               placeholder="Search a Pix or a Video"
+              name="search"
+              id="search"
+              type="text"
+              value={search}
+              onChange={(e) => findButSlowly(e.target.value)}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
