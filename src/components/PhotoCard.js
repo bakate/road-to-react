@@ -1,15 +1,15 @@
-import { Grid } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Grid } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import Typography from '@material-ui/core/Typography'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function ImgMediaCard({ id, photographer, src: { large } }) {
+export default function ImgMediaCard({ id, photographer, src }) {
   return (
     <Grid xs={12} sm={6} item>
       <Card>
@@ -19,7 +19,7 @@ export default function ImgMediaCard({ id, photographer, src: { large } }) {
               component="img"
               alt=""
               height="350"
-              image={large}
+              image={src && src.large}
               title={photographer}
             />
           </Link>
@@ -41,5 +41,5 @@ export default function ImgMediaCard({ id, photographer, src: { large } }) {
         </CardActions>
       </Card>
     </Grid>
-  );
+  )
 }

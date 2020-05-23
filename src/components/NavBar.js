@@ -1,15 +1,15 @@
-import { AppBar, Box, debounce, IconButton, Switch, Toolbar, Typography } from '@material-ui/core';
-import InputBase from '@material-ui/core/InputBase';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import { Menu } from '@material-ui/icons';
-import SearchIcon from '@material-ui/icons/Search';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useInfos } from '../state-management/context';
-import Drawer from './materialUi/Drawer';
-import menuItems from './materialUi/MenuItems';
+import { AppBar, Box, debounce, IconButton, Switch, Toolbar, Typography } from '@material-ui/core'
+import InputBase from '@material-ui/core/InputBase'
+import { fade, makeStyles } from '@material-ui/core/styles'
+import { Menu } from '@material-ui/icons'
+import SearchIcon from '@material-ui/icons/Search'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { useInfos } from '../state-management/context'
+import Drawer from './Drawer'
+import menuItems from './MenuItems'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
   // },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -65,13 +64,7 @@ const useStyles = makeStyles((theme) => ({
       width: '20ch',
     },
   },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-}));
+}))
 
 const NavBar = () => {
   const {
@@ -81,14 +74,14 @@ const NavBar = () => {
     toggleDrawer,
     search,
     setSearch,
-  } = useInfos();
+  } = useInfos()
 
-  const findSomePix = (query) => {
-    setSearch(query);
-  };
-  const findButSlowly = debounce(findSomePix, 250);
+  const findSomePix = query => {
+    setSearch(query)
+  }
+  const findButSlowly = debounce(findSomePix, 250)
 
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     // <Box component="nav" >
     <AppBar position="sticky" color="default">
@@ -104,7 +97,7 @@ const NavBar = () => {
         </IconButton>
         <NavLink to="/" style={{ textDecoration: 'none' }}>
           <Typography color="inherit" variant="h5" className={classes.title}>
-            {user.id ? `Welcome ${user.username}` : 'Hello'}
+            {user.id ? `Welcome ${user.username}` : null}
           </Typography>
         </NavLink>
         <div className={classes.search}>
@@ -117,7 +110,7 @@ const NavBar = () => {
             id="search"
             type="text"
             value={search}
-            onChange={(e) => findButSlowly(e.target.value)}
+            onChange={e => findButSlowly(e.target.value)}
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
@@ -126,7 +119,7 @@ const NavBar = () => {
           />
         </div>
         <Box className={classes.items} component="div">
-          {menuItems.map((item) => (
+          {menuItems.map(item => (
             <div key={item.id}>
               <NavLink exact to={`${item.listPath}`}>
                 <IconButton>{item.listIcon}</IconButton>
@@ -139,7 +132,7 @@ const NavBar = () => {
       </Toolbar>
     </AppBar>
     // </Box>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

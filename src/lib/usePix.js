@@ -2,26 +2,24 @@ import { Grid } from '@material-ui/core'
 import React from 'react'
 import { useQuery } from 'react-query'
 import ImgMediaCard from '../components/PhotoCard'
-import { useInfos } from '../state-management/context'
 import pexels from './api'
 
-const Query = () => {
-  const { search, setPix } = useInfos()
+const Query = ({ id }) => {
   //
 
-  const fetcher = async request => {
-    const { data } = await pexels.get('/v1/search', {
+  const fetcher = async (request, slug) => {
+    const { data } = await pexels.get(`/v1/photos/${slug}`, {
       params: {
         query: request,
         per_page: 16,
         page: 1,
       },
     })
-    setPix(data.photos)
+
     return data.photos
   }
 
-  const { status, data, error } = useQuery(search, fetcher)
+  const { status, data, error } = useQuery(['singlePix', id], fetcher)
   if (status === 'loading')
     return <p style={{ textAlign: 'center' }}>Loading...</p>
   if (status === 'error')

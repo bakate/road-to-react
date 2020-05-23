@@ -1,29 +1,29 @@
-import { Button, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@material-ui/core';
-import { AccountCircle, EmailRounded, Visibility, VisibilityOff } from '@material-ui/icons';
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import useForm from '../lib/useForm';
-import { useInfos } from '../state-management/context';
+import { Button, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@material-ui/core'
+import { AccountCircle, EmailRounded, Visibility, VisibilityOff } from '@material-ui/icons'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import useForm from '../lib/useForm'
+import { useInfos } from '../state-management/context'
 
 const Form = () => {
-  const history = useHistory();
-  const { user, userLogin } = useInfos();
+  const history = useHistory()
+  const { user, userLogin } = useInfos()
   const { inputs, handleChange, resetForm, handleShowPassword } = useForm({
     username: '',
     email: '',
     password: '',
     showPassword: false,
     id: '',
-  });
+  })
 
   return (
     <form
       autoComplete="off"
-      onSubmit={(e) => {
-        e.preventDefault();
-        userLogin({ ...inputs, id: Date.now() });
-        history.push('/private');
-        resetForm();
+      onSubmit={e => {
+        e.preventDefault()
+        userLogin({ ...inputs, id: Date.now() })
+        history.push('/private')
+        resetForm()
       }}
     >
       <Grid
@@ -112,7 +112,7 @@ const Form = () => {
         )}
       </Grid>
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

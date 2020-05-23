@@ -10,9 +10,8 @@ const PhotoDetailsPage = () => {
   const { id } = useParams();
   const history = useHistory();
 
-  const singlePix = pix.find((item) => item.id === Number(id));
-
   if (!pix.length) return <h2>Loading papi...</h2>;
+  const singlePix = pix.find((item) => item.id === Number(id));
   const { photographer, src, photographer_url, url } = singlePix;
 
   return (

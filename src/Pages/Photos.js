@@ -1,10 +1,10 @@
-import { Typography } from '@material-ui/core';
-import React from 'react';
-import Query from '../lib/QueryPix';
-import { useInfos } from '../state-management/context';
+import { Typography } from '@material-ui/core'
+import React from 'react'
+import Query from '../lib/QueryPix'
+import { useInfos } from '../state-management/context'
 
 const PhotosPage = () => {
-  const { search } = useInfos();
+  const { search } = useInfos()
   return (
     <div>
       <Typography
@@ -13,12 +13,12 @@ const PhotosPage = () => {
         style={{ textAlign: 'center', marginBottom: '1rem' }}
         color="initial"
       >
-        Here are your pictures for: <b>{search}</b>.<br /> You Can also check
-        the Video Page
+        Here are Your Pictures for: <b>{search}</b>.<br /> Check Also the Video
+        Page
       </Typography>
       <Query />
     </div>
-  );
-};
+  )
+}
 
-export default PhotosPage;
+export default PhotosPage

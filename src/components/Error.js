@@ -1,7 +1,7 @@
-import { Button, Grid, Typography } from '@material-ui/core';
-import { ArrowBack } from '@material-ui/icons';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Button, Grid, Typography } from '@material-ui/core'
+import { ArrowBack } from '@material-ui/icons'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Error = () => {
   return (
@@ -28,7 +28,7 @@ const Error = () => {
         </Button>
       </Link>
     </Grid>
-  );
-};
+  )
+}
 
-export default Error;
+export default Error

@@ -1,26 +1,19 @@
-import { AppBar, Box, IconButton, Switch, Toolbar, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { Menu } from '@material-ui/icons';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useInfos } from '../state-management/context';
-import Drawer from './materialUi/Drawer';
-import menuItems from './materialUi/MenuItems';
+import { AppBar, Box, IconButton, Switch, Toolbar } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import { Menu } from '@material-ui/icons'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { useInfos } from '../state-management/context'
+import Drawer from './Drawer'
+import menuItems from './MenuItems'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   appBar: {
     top: 'auto',
     bottom: 0,
   },
   menuButton: {
     marginRight: theme.spacing(2),
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-      marginRight: theme.spacing(6),
-    },
   },
   items: {
     display: 'none',
@@ -36,14 +29,13 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-}));
+}))
 
 const Footer = () => {
-  const { darkMode, handleDarkMode, user, toggleDrawer } = useInfos();
+  const { darkMode, handleDarkMode, toggleDrawer } = useInfos()
 
-  const classes = useStyles();
+  const classes = useStyles()
   return (
-    // <Box component="nav" >
     <AppBar position="fixed" color="default" className={classes.appBar}>
       <Toolbar>
         <IconButton
@@ -55,14 +47,9 @@ const Footer = () => {
         >
           <Menu />
         </IconButton>
-        <NavLink to="/" style={{ textDecoration: 'none' }}>
-          <Typography color="inherit" variant="h5" className={classes.title}>
-            {user.id ? `Welcome ${user.username}` : 'Hello'}
-          </Typography>
-        </NavLink>
 
         <Box className={classes.items} component="div">
-          {menuItems.map((item) => (
+          {menuItems.map(item => (
             <div key={item.id}>
               <NavLink exact to={`${item.listPath}`}>
                 <IconButton>{item.listIcon}</IconButton>
@@ -74,8 +61,7 @@ const Footer = () => {
         <Switch checked={darkMode} onChange={handleDarkMode} />
       </Toolbar>
     </AppBar>
-    // </Box>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
