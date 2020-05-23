@@ -5,12 +5,11 @@ import { Menu } from '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useInfos } from '../../state-management/context';
-import Drawer from './Drawer';
-import menuItems from './MenuItems';
+import { useInfos } from '../state-management/context';
+import Drawer from './materialUi/Drawer';
+import menuItems from './materialUi/MenuItems';
 
 const useStyles = makeStyles((theme) => ({
-  nav: { marginBottom: '2rem' },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -91,55 +90,55 @@ const NavBar = () => {
 
   const classes = useStyles();
   return (
-    <Box component="nav" className={classes.nav}>
-      <AppBar position="sticky" color="default">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={() => toggleDrawer('right', true)}
-          >
-            <Menu />
-          </IconButton>
-          <NavLink to="/" style={{ textDecoration: 'none' }}>
-            <Typography color="inherit" variant="h5" className={classes.title}>
-              {user.id ? `Welcome ${user.username}` : 'Hello'}
-            </Typography>
-          </NavLink>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search a Pix or a Video"
-              name="search"
-              id="search"
-              type="text"
-              value={search}
-              onChange={(e) => findButSlowly(e.target.value)}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
+    // <Box component="nav" >
+    <AppBar position="sticky" color="default">
+      <Toolbar>
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="menu"
+          onClick={() => toggleDrawer('right', true)}
+        >
+          <Menu />
+        </IconButton>
+        <NavLink to="/" style={{ textDecoration: 'none' }}>
+          <Typography color="inherit" variant="h5" className={classes.title}>
+            {user.id ? `Welcome ${user.username}` : 'Hello'}
+          </Typography>
+        </NavLink>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
           </div>
-          <Box className={classes.items} component="div">
-            {menuItems.map((item) => (
-              <div key={item.id}>
-                <NavLink exact to={`${item.listPath}`}>
-                  <IconButton>{item.listIcon}</IconButton>
-                </NavLink>
-              </div>
-            ))}
-          </Box>
-          <Drawer />
-          <Switch checked={darkMode} onChange={handleDarkMode} />
-        </Toolbar>
-      </AppBar>
-    </Box>
+          <InputBase
+            placeholder="Search a Pix or a Video"
+            name="search"
+            id="search"
+            type="text"
+            value={search}
+            onChange={(e) => findButSlowly(e.target.value)}
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ 'aria-label': 'search' }}
+          />
+        </div>
+        <Box className={classes.items} component="div">
+          {menuItems.map((item) => (
+            <div key={item.id}>
+              <NavLink exact to={`${item.listPath}`}>
+                <IconButton>{item.listIcon}</IconButton>
+              </NavLink>
+            </div>
+          ))}
+        </Box>
+        <Drawer />
+        <Switch checked={darkMode} onChange={handleDarkMode} />
+      </Toolbar>
+    </AppBar>
+    // </Box>
   );
 };
 

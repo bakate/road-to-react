@@ -4,7 +4,8 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Error from './components/Error';
-import NavBar from './components/materialUi/NavBar';
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
@@ -40,7 +41,10 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <NavBar />
-        <Paper component="div" style={{ margin: '0 auto', padding: '0 2rem' }}>
+        <Paper
+          component="div"
+          style={{ margin: '0 auto 2rem auto', padding: '2rem 2rem' }}
+        >
           <Switch>
             <Route exact path="/">
               <Home />
@@ -68,6 +72,7 @@ export default function App() {
             </Route>
           </Switch>
         </Paper>
+        <Footer />
       </ThemeProvider>
     </Router>
   );

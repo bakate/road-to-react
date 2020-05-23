@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
 import { useQuery } from 'react-query';
-import ImgMediaCard from '../components/Card';
+import ImgMediaCard from '../components/PhotoCard';
 import { useInfos } from '../state-management/context';
 import pexels from './api';
 

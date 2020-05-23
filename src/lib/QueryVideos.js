@@ -1,6 +1,7 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
 import { useQuery } from 'react-query';
+import VideoMediaCard from '../components/VideoCard';
 import { useInfos } from '../state-management/context';
 import pexels from './api';
 
@@ -38,10 +39,9 @@ const QueryVideos = () => {
   }
   return (
     <Grid container spacing={3}>
-      {/* {data.map((item) => (
-        <ImgMediaCard key={item.id} {...item} />
-      ))} */}
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      {data.map((item) => (
+        <VideoMediaCard key={item.id} {...item} />
+      ))}
     </Grid>
   );
 };

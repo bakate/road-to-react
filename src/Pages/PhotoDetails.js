@@ -1,5 +1,6 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Link } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import { ArrowBack, DirectionsRun } from '@material-ui/icons';
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useInfos } from '../state-management/context';
@@ -8,10 +9,8 @@ const PhotoDetailsPage = () => {
   const { pix } = useInfos();
   const { id } = useParams();
   const history = useHistory();
-  console.log(history);
 
   const singlePix = pix.find((item) => item.id === Number(id));
-  console.log(pix);
 
   if (!pix.length) return <h2>Loading papi...</h2>;
   const { photographer, src, photographer_url, url } = singlePix;
@@ -37,15 +36,29 @@ const PhotoDetailsPage = () => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Link
-            href={photographer_url}
-            target="_blank"
-            rel="noreferrer"
-            style={{ margin: '0 auto', marginBottom: '1rem' }}
+        <CardActions
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Button
+            size="small"
+            startIcon={<ArrowBack />}
+            variant="contained"
+            color="primary"
+            onClick={() => history.replace('/photos')}
           >
-            <Button size="small" variant="contained" color="primary">
-              Learn More
+            Back To Pix
+          </Button>
+          <Link href={photographer_url} target="_blank" rel="noreferrer">
+            <Button
+              size="small"
+              variant="contained"
+              color="primary"
+              startIcon={<DirectionsRun />}
+            >
+              See More
             </Button>
           </Link>
         </CardActions>
