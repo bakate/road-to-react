@@ -7,12 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function ImgMediaCard({ id, photographer, src }) {
-  const history = useHistory()
-  console.log(history);
-
+export default function ImgMediaCard({ id, photographer, src: { large } }) {
   return (
     <Grid xs={12} sm={6} item>
       <Card>
@@ -22,7 +19,7 @@ export default function ImgMediaCard({ id, photographer, src }) {
               component="img"
               alt=""
               height="350"
-              image={src?.large}
+              image={large}
               title={photographer}
             />
           </Link>
