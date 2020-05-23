@@ -8,6 +8,7 @@ const useForm = (initial = {}) => {
       ...inputs,
       [e.target.name]: e.target.value,
     })
+    //
   }
   const handleShowPassword = () => {
     setInputs({ ...inputs, showPassword: !inputs.showPassword })
