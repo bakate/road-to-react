@@ -1,5 +1,5 @@
-import { AccountCircle, Home, PhotoCamera, Videocam } from '@material-ui/icons';
-import React from 'react';
+import { AccountCircle, Home, PhotoCamera, Videocam } from '@material-ui/icons'
+import React from 'react'
 
 const menuItems = [
   {
@@ -26,6 +26,6 @@ const menuItems = [
     id: '6ac86dae-4f3a-5684-83a4-ac2e3f866bab',
     listPath: '/private',
   },
-];
+]
 
-export default menuItems;
+export default menuItems

@@ -1,10 +1,10 @@
-import { Typography } from '@material-ui/core';
-import React from 'react';
-import QueryVideos from '../lib/QueryVideos';
-import { useInfos } from '../state-management/context';
+import { Typography } from '@material-ui/core'
+import React from 'react'
+import QueryVideos from '../lib/QueryVideos'
+import { useInfos } from '../state-management/context'
 
 const VideosPage = () => {
-  const { search } = useInfos();
+  const { search } = useInfos()
   return (
     <>
       <Typography
@@ -17,7 +17,7 @@ const VideosPage = () => {
       </Typography>
       <QueryVideos />
     </>
-  );
-};
+  )
+}
 
-export default VideosPage;
+export default VideosPage

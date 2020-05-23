@@ -1,23 +1,23 @@
-import { CssBaseline, Paper } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Error from './components/Error';
-import Footer from './components/Footer';
-import NavBar from './components/NavBar';
-import PrivateRoute from './components/PrivateRoute';
-import Home from './Pages/Home';
-import Login from './Pages/Login';
-import PhotoDetails from './Pages/PhotoDetails';
-import Photos from './Pages/Photos';
-import Private from './Pages/Private';
-import VideoDetails from './Pages/VideoDetails';
-import Videos from './Pages/Videos';
-import { useInfos } from './state-management/context';
+import { CssBaseline, Paper } from '@material-ui/core'
+import { red } from '@material-ui/core/colors'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Error from './components/Error'
+import Footer from './components/Footer'
+import NavBar from './components/NavBar'
+import PrivateRoute from './components/PrivateRoute'
+import Home from './Pages/Home'
+import Login from './Pages/Login'
+import PhotoDetails from './Pages/PhotoDetails'
+import Photos from './Pages/Photos'
+import Private from './Pages/Private'
+import VideoDetails from './Pages/VideoDetails'
+import Videos from './Pages/Videos'
+import { useInfos } from './state-management/context'
 
 export default function App() {
-  const { darkMode } = useInfos();
+  const { darkMode } = useInfos()
   const theme = createMuiTheme({
     palette: {
       type: darkMode ? 'dark' : 'light',
@@ -34,7 +34,7 @@ export default function App() {
         default: '#fcfcfc',
       },
     },
-  });
+  })
 
   return (
     <Router>
@@ -75,5 +75,5 @@ export default function App() {
         <Footer />
       </ThemeProvider>
     </Router>
-  );
+  )
 }

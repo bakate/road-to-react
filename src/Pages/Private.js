@@ -1,6 +1,6 @@
-import { Typography } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import React from 'react';
+import { Typography } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
+import React from 'react'
 
 const PrivatePage = () => {
   return (
@@ -28,7 +28,7 @@ const PrivatePage = () => {
         </Typography>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default PrivatePage;
+export default PrivatePage

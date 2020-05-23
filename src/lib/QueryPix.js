@@ -7,7 +7,6 @@ import pexels from './api'
 
 const Query = () => {
   const { search, setPix } = useInfos()
-  //
 
   const fetcher = async request => {
     const { data } = await pexels.get('/v1/search', {

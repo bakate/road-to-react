@@ -19,7 +19,6 @@ const QueryVideos = () => {
         min_width: 250,
       },
     })
-    // const response = await res.data.videos;
     setVideos(data.videos)
     return data.videos
   }

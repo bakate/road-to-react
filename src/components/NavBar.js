@@ -52,9 +52,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  // inputRoot: {
-  //   color: 'primary',
-  // },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
@@ -83,7 +80,6 @@ const NavBar = () => {
 
   const classes = useStyles()
   return (
-    // <Box component="nav" >
     <AppBar position="sticky" color="default">
       <Toolbar>
         <IconButton
@@ -131,7 +127,6 @@ const NavBar = () => {
         <Switch checked={darkMode} onChange={handleDarkMode} />
       </Toolbar>
     </AppBar>
-    // </Box>
   )
 }
 

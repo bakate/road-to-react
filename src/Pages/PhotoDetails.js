@@ -1,18 +1,18 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Link } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import { ArrowBack, DirectionsRun } from '@material-ui/icons';
-import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { useInfos } from '../state-management/context';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Link } from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
+import { ArrowBack, DirectionsRun } from '@material-ui/icons'
+import React from 'react'
+import { useHistory, useParams } from 'react-router-dom'
+import { useInfos } from '../state-management/context'
 
 const PhotoDetailsPage = () => {
-  const { pix } = useInfos();
-  const { id } = useParams();
-  const history = useHistory();
+  const { pix } = useInfos()
+  const { id } = useParams()
+  const history = useHistory()
 
-  if (!pix.length) return <h2>Loading papi...</h2>;
-  const singlePix = pix.find((item) => item.id === Number(id));
-  const { photographer, src, photographer_url, url } = singlePix;
+  if (!pix.length) return <h2>Loading papi...</h2>
+  const singlePix = pix.find(item => item.id === Number(id))
+  const { photographer, src, photographer_url, url } = singlePix
 
   return (
     <Grid xs={12} container item justify="center">
@@ -63,7 +63,7 @@ const PhotoDetailsPage = () => {
         </CardActions>
       </Card>
     </Grid>
-  );
-};
+  )
+}
 
-export default PhotoDetailsPage;
+export default PhotoDetailsPage

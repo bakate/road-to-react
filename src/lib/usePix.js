@@ -5,8 +5,6 @@ import ImgMediaCard from '../components/PhotoCard'
 import pexels from './api'
 
 const Query = ({ id }) => {
-  //
-
   const fetcher = async (request, slug) => {
     const { data } = await pexels.get(`/v1/photos/${slug}`, {
       params: {
