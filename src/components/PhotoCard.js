@@ -9,18 +9,18 @@ import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function ImgMediaCard({ id, photographer, src }) {
+export default function ImgMediaCard({ id, src, photographer }) {
   return (
     <Grid xs={12} sm={6} item>
       <Card>
         <CardActionArea>
           <Link to={`photos/${id}`}>
             <CardMedia
-              component="img"
-              alt=""
+              alt={photographer}
               height="350"
-              image={src && src.large}
+              component="img"
               title={photographer}
+              image={src && src.large}
             />
           </Link>
           <CardContent>

@@ -3,16 +3,17 @@ import Typography from '@material-ui/core/Typography'
 import { ArrowBack, DirectionsRun } from '@material-ui/icons'
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { useInfos } from '../state-management/context'
+import getSinglePix from '../components/Hooks/QuerySinglePix'
 
 const PhotoDetailsPage = () => {
-  const { pix } = useInfos()
   const { id } = useParams()
   const history = useHistory()
-
-  if (!pix.length) return <h2>Loading papi...</h2>
-  const singlePix = pix.find(item => item.id === Number(id))
-  const { photographer, src, photographer_url, url } = singlePix
+  const { error, status, data } = getSinglePix(Number(id))
+  if (status === 'loading')
+    return <p style={{ textAlign: 'center' }}>Loading...</p>
+  if (status === 'error')
+    return <p style={{ textAlign: 'center' }}>Error Papi...{error.message}</p>
+  const { url, src, photographer, photographer_url } = data || []
 
   return (
     <Grid xs={12} container item justify="center">
@@ -20,10 +21,9 @@ const PhotoDetailsPage = () => {
         <CardActionArea>
           <Link href={url} target="_blank" rel="noreferrer">
             <CardMedia
-              component="img"
-              alt=""
               height="600"
               width="100%"
+              component="img"
               image={src.large}
               title={photographer}
             />
@@ -43,18 +43,18 @@ const PhotoDetailsPage = () => {
         >
           <Button
             size="small"
-            startIcon={<ArrowBack />}
-            variant="contained"
             color="primary"
+            variant="contained"
+            startIcon={<ArrowBack />}
             onClick={() => history.replace('/photos')}
           >
             Back To Pix
           </Button>
-          <Link href={photographer_url} target="_blank" rel="noreferrer">
+          <Link target="_blank" rel="noreferrer" href={photographer_url}>
             <Button
               size="small"
-              variant="contained"
               color="primary"
+              variant="contained"
               startIcon={<DirectionsRun />}
             >
               See More

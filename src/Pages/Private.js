@@ -7,11 +7,11 @@ const PrivatePage = () => {
     <Grid
       container
       spacing={1}
+      wrap="nowrap"
       direction="row"
       justify="flex-start"
-      alignItems="flex-start"
       alignContent="stretch"
-      wrap="nowrap"
+      alignItems="flex-start"
     >
       <Grid item>
         <Typography variant="h5" color="initial">

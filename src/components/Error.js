@@ -8,20 +8,24 @@ const Error = () => {
     <Grid
       container
       spacing={1}
-      direction="column"
+      wrap="nowrap"
       justify="center"
+      direction="column"
       alignItems="center"
       alignContent="center"
-      wrap="nowrap"
     >
       <Typography variant="h3" color="initial">
-        Tu fais du hors piste
+        Humm! You Seem Lost{' '}
+        <span role="img" aria-label="crying">
+          😢
+        </span>
+        !
       </Typography>
       <Link to="/">
         <Button
+          size="large"
           color="secondary"
           variant="contained"
-          size="large"
           startIcon={<ArrowBack />}
         >
           Retour

@@ -1,22 +1,29 @@
 import { Typography } from '@material-ui/core'
 import React from 'react'
-import Query from '../lib/QueryPix'
+import QueryAllPix from '../components/Hooks/QueryPix'
 import { useInfos } from '../state-management/context'
 
 const PhotosPage = () => {
   const { search } = useInfos()
+
   return (
     <div>
       <Typography
         variant="h3"
         gutterBottom
-        style={{ textAlign: 'center', marginBottom: '1rem' }}
         color="initial"
+        style={{
+          textAlign: 'center',
+          marginBottom: '1rem',
+          textTransform: 'capitalize',
+        }}
       >
-        Here are Your Pictures for: <b>{search}</b>.<br /> Check Also the Video
-        Page
+        {search
+          ? `Here are your pictures for : ${search.toUpperCase()}.
+        `
+          : null}
       </Typography>
-      <Query />
+      <QueryAllPix search={search} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { Typography } from '@material-ui/core'
 import React from 'react'
-import QueryVideos from '../lib/QueryVideos'
+import QueryVideos from '../components/Hooks/QueryVideos'
 import { useInfos } from '../state-management/context'
 
 const VideosPage = () => {
@@ -11,11 +11,11 @@ const VideosPage = () => {
         variant="h3"
         gutterBottom
         color="initial"
-        style={{ textAlign: 'center' }}
+        style={{ textAlign: 'center', textTransform: 'capitalize' }}
       >
-        Here are your videos for: <b>{search}</b>
+        {search ? `Here are your videos for: ${search.toUpperCase()}.` : null}
       </Typography>
-      <QueryVideos />
+      <QueryVideos searchVideos={search} />
     </>
   )
 }

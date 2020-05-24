@@ -9,11 +9,11 @@ const Form = () => {
   const history = useHistory()
   const { user, userLogin } = useInfos()
   const { inputs, handleChange, resetForm, handleShowPassword } = useForm({
-    username: '',
+    id: '',
     email: '',
+    username: '',
     password: '',
     showPassword: false,
-    id: '',
   })
 
   return (
@@ -22,17 +22,17 @@ const Form = () => {
       onSubmit={e => {
         e.preventDefault()
         userLogin({ ...inputs, id: Date.now() })
-        history.push('/private')
         resetForm()
+        history.push('/private')
       }}
     >
       <Grid
         container
-        direction="column"
+        wrap="nowrap"
         justify="center"
+        direction="column"
         alignItems="center"
         alignContent="center"
-        wrap="nowrap"
       >
         <Grid item>
           <FormControl margin="dense" variant="outlined">
@@ -40,10 +40,10 @@ const Form = () => {
               Username
             </InputLabel>
             <OutlinedInput
-              name="username"
-              id="username"
-              type="text"
               required
+              type="text"
+              id="username"
+              name="username"
               value={inputs.username}
               onChange={handleChange}
               endAdornment={
@@ -62,10 +62,10 @@ const Form = () => {
                 Email
               </InputLabel>
               <OutlinedInput
-                name="email"
-                id="email"
-                type="email"
                 required
+                id="email"
+                name="email"
+                type="email"
                 value={inputs.email}
                 onChange={handleChange}
                 endAdornment={
@@ -84,12 +84,12 @@ const Form = () => {
               Password
             </InputLabel>
             <OutlinedInput
-              name="password"
-              id="password"
               required
-              type={inputs.showPassword ? 'text' : 'password'}
+              id="password"
+              name="password"
               value={inputs.password}
               onChange={handleChange}
+              type={inputs.showPassword ? 'text' : 'password'}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton

@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   media: {
-    width: '100%',
     height: 350,
+    width: '100%',
     objectFit: 'contain',
   },
 }))
@@ -25,12 +25,12 @@ export default function VideoMediaCard({ id, video_files: videoFiles }) {
       <Card>
         <CardActionArea>
           <CardMedia
+            muted
+            frameBorder={0}
+            allowFullScreen
             component="iframe"
             className={classes.media}
             src={firstVideo && firstVideo.link}
-            frameBorder={0}
-            allowFullScreen
-            muted
             allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
           />
         </CardActionArea>
@@ -41,8 +41,8 @@ export default function VideoMediaCard({ id, video_files: videoFiles }) {
           >
             <Button
               size="small"
-              variant="contained"
               color="primary"
+              variant="contained"
               startIcon={<DirectionsRun />}
             >
               More Info

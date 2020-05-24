@@ -1,35 +1,38 @@
-import { Button, Card, CardActionArea, CardActions, CardMedia, Grid, Link } from '@material-ui/core';
-import { ArrowBack, DirectionsRun } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/styles';
-import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { useInfos } from '../state-management/context';
+import { Button, Card, CardActionArea, CardActions, CardMedia, Grid, Link } from '@material-ui/core'
+import { ArrowBack, DirectionsRun } from '@material-ui/icons'
+import { makeStyles } from '@material-ui/styles'
+import React from 'react'
+import { useHistory, useParams } from 'react-router-dom'
+import useSingleVideo from '../components/Hooks/QuerySingleVideo'
 
 const useStyles = makeStyles({
+  card: {
+    width: 900,
+  },
   root: {
     maxWidth: 900,
     marginBottom: '2rem',
-  },
-  card: {
-    width: 900,
   },
   buttons: {
     display: 'flex',
     justifyContent: 'space-evenly',
   },
-});
+})
 
 const VideoDetailsPage = () => {
-  const classes = useStyles();
-  const { id } = useParams();
-  const history = useHistory();
-  const { videos } = useInfos();
+  const { id } = useParams()
+  const classes = useStyles()
+  const history = useHistory()
 
-  if (!videos.length) return <h2>Loading Video papi...</h2>;
-  const singleVideo = videos.find(item => item.id === Number(id));
-  const { url, video_files } = singleVideo || [];
-  const videoToDisplay = video_files.map(v => v);
-  const [firstOne] = videoToDisplay;
+  const { status, data, error } = useSingleVideo(Number(id))
+  if (status === 'loading')
+    return <p style={{ textAlign: 'center' }}>Loading...</p>
+  if (status === 'error')
+    return <p style={{ textAlign: 'center' }}>Error Papi...{error.message}</p>
+
+  const { url, video_files } = data || []
+  const videoToDisplay = video_files.map(v => v)
+  const [firstOne] = videoToDisplay
 
   return (
     <Grid xs={12} container item justify="center">
@@ -70,7 +73,7 @@ const VideoDetailsPage = () => {
         </CardActions>
       </Card>
     </Grid>
-  );
-};
+  )
+}
 
-export default VideoDetailsPage;
+export default VideoDetailsPage

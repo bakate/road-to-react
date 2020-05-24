@@ -9,8 +9,11 @@ import menuItems from './MenuItems'
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    top: 'auto',
     bottom: 0,
+    top: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -18,15 +21,9 @@ const useStyles = makeStyles(theme => ({
   items: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
-      justifyContent: 'space-evenly',
-      display: 'flex',
       flexGrow: 1,
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+      display: 'flex',
+      justifyContent: 'space-evenly',
     },
   },
 }))
@@ -36,13 +33,13 @@ const Footer = () => {
 
   const classes = useStyles()
   return (
-    <AppBar position="fixed" color="default" className={classes.appBar}>
+    <AppBar position="static" color="default" className={classes.appBar}>
       <Toolbar>
         <IconButton
           edge="start"
-          className={classes.menuButton}
           color="inherit"
           aria-label="menu"
+          className={classes.menuButton}
           onClick={() => toggleDrawer('right', true)}
         >
           <Menu />

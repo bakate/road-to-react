@@ -3,8 +3,7 @@
     "es6": true
   },
   "extends": [
-    "airbnb",
-    "plugin:prettier/recommended",
+    "react-app",
     "prettier/react"
   ],
   "parserOptions": {

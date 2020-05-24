@@ -3,18 +3,18 @@ import React, { createContext, useContext, useState } from 'react'
 const Infos = createContext()
 
 const nobody = {
-  username: null,
+  id: null,
   email: null,
+  username: null,
   password: null,
   showPassword: false,
-  id: null,
 }
-const getuserFromLocalStorage = () => {
+const getUserFromLocalStorage = () => {
   const somebody = localStorage.getItem('user')
   return somebody ? JSON.parse(somebody) : nobody
 }
 const MamaProvider = ({ children }) => {
-  const [user, setUser] = useState(getuserFromLocalStorage())
+  const [user, setUser] = useState(getUserFromLocalStorage())
 
   const [darkMode, setDarkMode] = useState(false)
   const handleDarkMode = () => {
@@ -24,8 +24,6 @@ const MamaProvider = ({ children }) => {
   const toggleDrawer = (slide, open) => {
     setDrawer({ ...drawerify, [slide]: open })
   }
-  const [pix, setPix] = useState([])
-  const [videos, setVideos] = useState([])
   const [search, setSearch] = useState('Paris')
 
   const userLogin = person => {
@@ -49,10 +47,6 @@ const MamaProvider = ({ children }) => {
         toggleDrawer,
         search,
         setSearch,
-        pix,
-        setPix,
-        videos,
-        setVideos,
       }}
     >
       {children}

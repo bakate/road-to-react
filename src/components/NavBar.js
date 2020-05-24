@@ -16,47 +16,47 @@ const useStyles = makeStyles(theme => ({
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
-      display: 'block',
       marginRight: theme.spacing(6),
+      display: 'block',
     },
   },
   items: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
-      justifyContent: 'space-evenly',
-      display: 'flex',
       flexGrow: 1,
+      display: 'flex',
+      justifyContent: 'space-evenly',
     },
   },
   search: {
+    marginLeft: 0,
+    width: '100%',
     position: 'relative',
+    marginRight: theme.spacing(2),
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.black, 0.15),
     '&:hover': {
       backgroundColor: fade(theme.palette.common.black, 0.25),
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
       width: 'auto',
+      marginLeft: theme.spacing(3),
     },
   },
   searchIcon: {
-    padding: theme.spacing(0, 2),
     height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
     display: 'flex',
+    position: 'absolute',
     alignItems: 'center',
+    pointerEvents: 'none',
     justifyContent: 'center',
+    padding: theme.spacing(0, 2),
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
     width: '100%',
+    padding: theme.spacing(1, 1, 1, 0),
+    transition: theme.transitions.create('width'),
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     [theme.breakpoints.up('md')]: {
       width: '20ch',
     },
@@ -65,18 +65,18 @@ const useStyles = makeStyles(theme => ({
 
 const NavBar = () => {
   const {
-    darkMode,
-    handleDarkMode,
     user,
-    toggleDrawer,
     search,
+    darkMode,
     setSearch,
+    toggleDrawer,
+    handleDarkMode,
   } = useInfos()
 
   const findSomePix = query => {
     setSearch(query)
   }
-  const findButSlowly = debounce(findSomePix, 250)
+  const findButSlowly = debounce(findSomePix, 150)
 
   const classes = useStyles()
   return (
@@ -84,9 +84,9 @@ const NavBar = () => {
       <Toolbar>
         <IconButton
           edge="start"
-          className={classes.menuButton}
           color="inherit"
           aria-label="menu"
+          className={classes.menuButton}
           onClick={() => toggleDrawer('right', true)}
         >
           <Menu />
@@ -101,17 +101,17 @@ const NavBar = () => {
             <SearchIcon />
           </div>
           <InputBase
-            placeholder="Search a Pix or a Video"
-            name="search"
             id="search"
             type="text"
+            name="search"
             value={search}
+            placeholder="Search a Pix or a Video"
+            inputProps={{ 'aria-label': 'search' }}
             onChange={e => findButSlowly(e.target.value)}
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
             }}
-            inputProps={{ 'aria-label': 'search' }}
           />
         </div>
         <Box className={classes.items} component="div">
