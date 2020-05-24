@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    autoplay: 'false',
+    autoPlay: 'false',
   },
   media: {
     height: 360,
@@ -27,7 +27,7 @@ export default function VideoMediaCard({
 
   return (
     <Grid xs={12} sm={6} md={4} item>
-      <Card>
+      <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             poster={screenshot}

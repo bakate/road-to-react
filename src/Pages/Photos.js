@@ -8,8 +8,13 @@ const PhotosPage = () => {
   const { search } = useInfos()
   const { data, error, status } = useAllPhotos(search)
   if (!search) {
-    return <p style={{ textAlign: 'center' }}>Search Something...</p>
+    return (
+      <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
+        Search For Something Papi
+      </Typography>
+    )
   }
+
   if (status === 'loading')
     return <p style={{ textAlign: 'center' }}>Loading...</p>
   if (status === 'error')
@@ -17,23 +22,14 @@ const PhotosPage = () => {
 
   return (
     <>
-      {!search && (
-        <Typography
-          variant="subtitle2"
-          color="initial"
-          style={{ textAlign: 'center' }}
-        >
-          Search For Something Papi
-        </Typography>
-      )}
-      {data && (
+      {data.length > 0 && (
         <Typography
           variant="h4"
           gutterBottom
           color="initial"
           style={{ textAlign: 'center', textTransform: 'capitalize' }}
         >
-          Here are your videos for: {search.toUpperCase()}.
+          Here are your photos for: {search.toUpperCase()}.
         </Typography>
       )}
       <Grid container spacing={3}>

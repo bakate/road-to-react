@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       height: 540,
       width: 960,
+      objectFit: 'contain',
     },
   },
   buttons: {

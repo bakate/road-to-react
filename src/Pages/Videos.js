@@ -8,23 +8,28 @@ const VideosPage = () => {
   const { search } = useInfos()
 
   const { status, data, error } = useAllVideos(search)
-
+  if (!search) {
+    return (
+      <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
+        Search For Something Papi
+      </Typography>
+    )
+  }
   if (status === 'loading')
     return <p style={{ textAlign: 'center' }}>Loading...</p>
   if (status === 'error')
     return <p style={{ textAlign: 'center' }}>Error Papi...{error.message}</p>
-  if (data.length === 0) {
-    return <h2 style={{ textAlign: 'center' }}>Sorry no videos for {search}</h2>
-  }
+
   return (
     <>
-      {!search && (
+      {data.length > 0 && (
         <Typography
-          variant="subtitle2"
+          variant="h4"
+          gutterBottom
           color="initial"
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: 'center', textTransform: 'capitalize' }}
         >
-          Search For Something Papi
+          Here are your videos for: {search.toUpperCase()}
         </Typography>
       )}
       <Grid container spacing={3}>
