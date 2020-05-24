@@ -17,14 +17,25 @@ const PhotosPage = () => {
 
   return (
     <>
-      <Typography
-        variant="h4"
-        gutterBottom
-        color="initial"
-        style={{ textAlign: 'center', textTransform: 'capitalize' }}
-      >
-        Here are your videos for: {search.toUpperCase()}.
-      </Typography>
+      {!search && (
+        <Typography
+          variant="subtitle2"
+          color="initial"
+          style={{ textAlign: 'center' }}
+        >
+          Search For Something Papi
+        </Typography>
+      )}
+      {data && (
+        <Typography
+          variant="h4"
+          gutterBottom
+          color="initial"
+          style={{ textAlign: 'center', textTransform: 'capitalize' }}
+        >
+          Here are your videos for: {search.toUpperCase()}.
+        </Typography>
+      )}
       <Grid container spacing={3}>
         {data.map(item => (
           <ImgMediaCard key={item.id} {...item} />

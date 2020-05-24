@@ -35,7 +35,7 @@ export default function ImgMediaCard({ id, src, photographer }) {
             style={{ margin: '0 auto', marginBottom: '1rem' }}
           >
             <Button size="small" variant="contained" color="primary">
-              Learn More
+              See More
             </Button>
           </Link>
         </CardActions>

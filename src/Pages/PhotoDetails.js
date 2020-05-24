@@ -21,12 +21,12 @@ const PhotoDetailsPage = () => {
         <CardActionArea>
           <Link href={url} target="_blank" rel="noreferrer">
             <CardMedia
-              height="500"
+              height="400"
               width="100%"
               component="img"
               image={src.large}
               title={photographer}
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'cover' }}
             />
           </Link>
           <CardContent>
@@ -47,7 +47,7 @@ const PhotoDetailsPage = () => {
             color="primary"
             variant="contained"
             startIcon={<ArrowBack />}
-            onClick={() => history.replace('/photos')}
+            onClick={() => history.goBack()}
           >
             Back To Pix
           </Button>
