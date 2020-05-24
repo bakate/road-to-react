@@ -43,7 +43,7 @@ export default function App() {
         <NavBar />
         <Paper
           component="div"
-          style={{ margin: '0 auto 2rem auto', padding: '2rem 2rem' }}
+          style={{ margin: '0 auto 0rem auto', padding: '2rem 2rem' }}
         >
           <Switch>
             <Route exact path="/">

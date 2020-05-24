@@ -1,30 +1,36 @@
-import { Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import React from 'react'
-import QueryAllPix from '../components/Hooks/QueryPix'
+import useAllPhotos from '../components/Hooks/useAllPix'
+import ImgMediaCard from '../components/PhotoCard'
 import { useInfos } from '../state-management/context'
 
 const PhotosPage = () => {
   const { search } = useInfos()
+  const { data, error, status } = useAllPhotos(search)
+  if (!search) {
+    return <p style={{ textAlign: 'center' }}>Search Something...</p>
+  }
+  if (status === 'loading')
+    return <p style={{ textAlign: 'center' }}>Loading...</p>
+  if (status === 'error')
+    return <p style={{ textAlign: 'center' }}>Error Papi...{error.message}</p>
 
   return (
-    <div>
+    <>
       <Typography
-        variant="h3"
+        variant="h4"
         gutterBottom
         color="initial"
-        style={{
-          textAlign: 'center',
-          marginBottom: '1rem',
-          textTransform: 'capitalize',
-        }}
+        style={{ textAlign: 'center', textTransform: 'capitalize' }}
       >
-        {search
-          ? `Here are your pictures for : ${search.toUpperCase()}.
-        `
-          : null}
+        Here are your videos for: {search.toUpperCase()}.
       </Typography>
-      <QueryAllPix search={search} />
-    </div>
+      <Grid container spacing={3}>
+        {data.map(item => (
+          <ImgMediaCard key={item.id} {...item} />
+        ))}
+      </Grid>
+    </>
   )
 }
 

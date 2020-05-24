@@ -7,14 +7,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    autoplay: 'false',
+  },
   media: {
-    height: 350,
-    width: '100%',
+    height: 360,
+    width: 640,
     objectFit: 'contain',
+    autoPlay: 'false',
   },
 }))
 
-export default function VideoMediaCard({ id, video_files: videoFiles }) {
+export default function VideoMediaCard({
+  id,
+  video_files: videoFiles,
+  image: screenshot,
+}) {
   const classes = useStyles()
 
   return (
@@ -22,12 +30,13 @@ export default function VideoMediaCard({ id, video_files: videoFiles }) {
       <Card>
         <CardActionArea>
           <CardMedia
+            poster={screenshot}
             frameBorder={0}
             allowFullScreen
             component="iframe"
+            autoPlay={false}
             className={classes.media}
             src={videoFiles[0].link}
-            forbid="autoPlay"
             allow="accelerometer;encrypted-media; gyroscope; picture-in-picture"
           />
         </CardActionArea>

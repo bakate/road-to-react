@@ -24,7 +24,7 @@ const MamaProvider = ({ children }) => {
   const toggleDrawer = (slide, open) => {
     setDrawer({ ...drawerify, [slide]: open })
   }
-  const [search, setSearch] = useState('Paris')
+  const [search, setSearch] = useState('')
 
   const userLogin = person => {
     setUser(person)

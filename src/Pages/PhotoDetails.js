@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography'
 import { ArrowBack, DirectionsRun } from '@material-ui/icons'
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import getSinglePix from '../components/Hooks/QuerySinglePix'
+import getSinglePix from '../components/Hooks/useSinglePix'
 
 const PhotoDetailsPage = () => {
   const { id } = useParams()
@@ -17,15 +17,16 @@ const PhotoDetailsPage = () => {
 
   return (
     <Grid xs={12} container item justify="center">
-      <Card style={{ width: '100vw' }}>
+      <Card>
         <CardActionArea>
           <Link href={url} target="_blank" rel="noreferrer">
             <CardMedia
-              height="450"
+              height="500"
               width="100%"
               component="img"
               image={src.large}
               title={photographer}
+              style={{ objectFit: 'contain' }}
             />
           </Link>
           <CardContent>

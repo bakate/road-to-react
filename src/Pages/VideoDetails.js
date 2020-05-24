@@ -3,21 +3,23 @@ import { ArrowBack, DirectionsRun } from '@material-ui/icons'
 import { makeStyles } from '@material-ui/styles'
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import useSingleVideo from '../components/Hooks/QuerySingleVideo'
+import useSingleVideo from '../components/Hooks/useSingleVideos'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
-    width: '100vw',
-  },
-  root: {
-    maxWidth: '100%',
-    marginBottom: '2rem',
+    height: 360,
+    width: 640,
+    objectFit: 'contain',
+    [theme.breakpoints.up('sm')]: {
+      height: 540,
+      width: 960,
+    },
   },
   buttons: {
     display: 'flex',
     justifyContent: 'center',
   },
-})
+}))
 
 const VideoDetailsPage = () => {
   const { id } = useParams()
@@ -30,21 +32,23 @@ const VideoDetailsPage = () => {
   if (status === 'error')
     return <p style={{ textAlign: 'center' }}>Error Papi...{error.message}</p>
 
-  const { url, video_files: videoFiles, user } = data || []
+  const { url, video_files: videoFiles, user, image: screenshot } = data || []
+  console.log(videoFiles)
 
   return (
     <Grid xs={12} container item justify="center">
-      <Card className={classes.root}>
+      <Card>
         <CardActionArea>
           <CardMedia
+            muted
+            frameBorder={0}
+            poster={screenshot}
+            allowFullScreen
+            title={user.name}
             component="iframe"
             src={videoFiles[0].link}
-            frameBorder={0}
-            height="600"
-            title={user.name}
             className={classes.card}
-            allowFullScreen
-            muted
+            style={{ backgroundImage: `url(/${screenshot})` }}
             allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
           />
         </CardActionArea>
