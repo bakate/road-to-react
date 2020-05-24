@@ -17,11 +17,11 @@ const PhotoDetailsPage = () => {
 
   return (
     <Grid xs={12} container item justify="center">
-      <Card>
+      <Card style={{ width: '100vw' }}>
         <CardActionArea>
           <Link href={url} target="_blank" rel="noreferrer">
             <CardMedia
-              height="600"
+              height="450"
               width="100%"
               component="img"
               image={src.large}

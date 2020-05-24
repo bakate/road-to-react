@@ -17,21 +17,18 @@ const useStyles = makeStyles(theme => ({
 export default function VideoMediaCard({ id, video_files: videoFiles }) {
   const classes = useStyles()
 
-  const allVideos = videoFiles && videoFiles.map(v => v)
-  const [firstVideo] = allVideos || []
-
   return (
     <Grid xs={12} sm={6} md={4} item>
       <Card>
         <CardActionArea>
           <CardMedia
-            muted
             frameBorder={0}
             allowFullScreen
             component="iframe"
             className={classes.media}
-            src={firstVideo && firstVideo.link}
-            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+            src={videoFiles[0].link}
+            forbid="autoPlay"
+            allow="accelerometer;encrypted-media; gyroscope; picture-in-picture"
           />
         </CardActionArea>
         <CardActions>

@@ -7,15 +7,15 @@ import useSingleVideo from '../components/Hooks/QuerySingleVideo'
 
 const useStyles = makeStyles({
   card: {
-    width: 900,
+    width: '100vw',
   },
   root: {
-    maxWidth: 900,
+    maxWidth: '100%',
     marginBottom: '2rem',
   },
   buttons: {
     display: 'flex',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
   },
 })
 
@@ -30,9 +30,7 @@ const VideoDetailsPage = () => {
   if (status === 'error')
     return <p style={{ textAlign: 'center' }}>Error Papi...{error.message}</p>
 
-  const { url, video_files } = data || []
-  const videoToDisplay = video_files.map(v => v)
-  const [firstOne] = videoToDisplay
+  const { url, video_files: videoFiles, user } = data || []
 
   return (
     <Grid xs={12} container item justify="center">
@@ -40,9 +38,10 @@ const VideoDetailsPage = () => {
         <CardActionArea>
           <CardMedia
             component="iframe"
-            src={firstOne.link}
+            src={videoFiles[0].link}
             frameBorder={0}
             height="600"
+            title={user.name}
             className={classes.card}
             allowFullScreen
             muted
