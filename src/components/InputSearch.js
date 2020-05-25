@@ -53,7 +53,6 @@ const InputSearch = () => {
   const { setSearch } = useInfos()
 
   const { inputs, handleChange, resetForm } = useForm({ query: '' })
-  console.log(inputs.query, 'from Seach')
 
   const handleSubmit = () => {
     setSearch(inputs.query)

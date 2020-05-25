@@ -8,7 +8,6 @@ import { useInfos } from '../state-management/context'
 const PhotosPage = () => {
   const { search } = useInfos()
   const { data, error, status } = useAllPhotos(search)
-  console.log(search, 'from Photos')
 
   if (!search.length) {
     return <TextDescription />
@@ -21,6 +20,11 @@ const PhotosPage = () => {
 
   return (
     <>
+      {data.length === 0 && (
+        <TextDescription
+          infos={`Sorry, no photos for : ${search.toUpperCase()}`}
+        />
+      )}
       {data.length > 0 && (
         <TextDescription
           infos={`Here are your photos for : ${search.toUpperCase()}`}

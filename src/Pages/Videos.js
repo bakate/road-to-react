@@ -20,6 +20,11 @@ const VideosPage = () => {
 
   return (
     <>
+      {data.length === 0 && (
+        <TextDescription
+          infos={`Sorry, no videos for : ${search.toUpperCase()}`}
+        />
+      )}
       {data.length > 0 && (
         <TextDescription
           infos={`Here are your videos for : ${search.toUpperCase()}`}
