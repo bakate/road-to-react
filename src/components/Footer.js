@@ -1,4 +1,4 @@
-import { AppBar, Box, IconButton, Switch, Toolbar } from '@material-ui/core'
+import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { Menu } from '@material-ui/icons'
 import React from 'react'
@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { useInfos } from '../state-management/context'
 import Drawer from './Drawer'
 import menuItems from './MenuItems'
+import Switcher from './Switch'
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Footer = () => {
-  const { darkMode, handleDarkMode, toggleDrawer } = useInfos()
+  const { toggleDrawer } = useInfos()
 
   const classes = useStyles()
   return (
@@ -55,7 +56,7 @@ const Footer = () => {
           ))}
         </Box>
         <Drawer />
-        <Switch checked={darkMode} onChange={handleDarkMode} />
+        <Switcher />
       </Toolbar>
     </AppBar>
   )

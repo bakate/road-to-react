@@ -4,10 +4,10 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CTA from './CTA'
+import TextDescription from './Text'
 
 export default function ImgMediaCard({ id, src, photographer }) {
   return (
@@ -24,9 +24,7 @@ export default function ImgMediaCard({ id, src, photographer }) {
             />
           </Link>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              Broad to you by: {photographer}
-            </Typography>
+            <TextDescription infos={`Broad to you by : ${photographer}`} />
           </CardContent>
         </CardActionArea>
         <CardActions>

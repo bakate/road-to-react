@@ -1,4 +1,4 @@
-import { AppBar, Box, IconButton, Switch, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, Box, IconButton, Toolbar, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { Menu } from '@material-ui/icons'
 import React from 'react'
@@ -7,6 +7,7 @@ import { useInfos } from '../state-management/context'
 import Drawer from './Drawer'
 import InputSearch from './InputSearch'
 import menuItems from './MenuItems'
+import Switcher from './Switch'
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const NavBar = () => {
-  const { user, darkMode, toggleDrawer, handleDarkMode } = useInfos()
+  const { user, toggleDrawer } = useInfos()
 
   const classes = useStyles()
   return (
@@ -61,7 +62,7 @@ const NavBar = () => {
           ))}
         </Box>
         <Drawer />
-        <Switch checked={darkMode} onChange={handleDarkMode} />
+        <Switcher />
       </Toolbar>
     </AppBar>
   )
