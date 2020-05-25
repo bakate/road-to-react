@@ -14,9 +14,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     position: 'relative',
     marginRight: theme.spacing(2),
-    backgroundColor: fade(theme.palette.background.paper, 0.15),
+    backgroundColor: fade(theme.palette.primary.main, 0.2),
     '&:hover': {
-      backgroundColor: fade(theme.palette.background.paper, 0.35),
+      backgroundColor: fade(theme.palette.primary.main, 0.45),
     },
     [theme.breakpoints.up('sm')]: {
       width: 'auto',

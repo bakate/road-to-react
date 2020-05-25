@@ -7,8 +7,8 @@ const fetcher = async () => {
     data: { photos },
   } = await pexels.get('/v1/curated', {
     params: {
-      page: 2,
-      per_page: 16,
+      page: 1,
+      per_page: 8,
     },
   })
 

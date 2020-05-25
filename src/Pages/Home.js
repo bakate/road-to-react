@@ -1,6 +1,7 @@
 import { Grid } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import useCuratedPix from '../components/Hooks/useCuratedPix'
 import ImgMediaCard from '../components/PhotoCard'
 
@@ -14,12 +15,22 @@ const Home = () => {
   return (
     <>
       <Typography
-        variant="h4"
+        variant="h6"
         gutterBottom
         color="initial"
         style={{ textTransform: 'capitalize', textAlign: 'center' }}
       >
-        latest and hottest photos from pexels
+        Last 8 Curated photos from pexels. <br />
+        Make your query and go visit the{' '}
+        <Link to="/photos" style={{ textDecoration: 'none' }}>
+          Photos{' '}
+        </Link>
+        &
+        <Link to="/videos" style={{ textDecoration: 'none' }}>
+          {' '}
+          Videos{' '}
+        </Link>
+        pages
       </Typography>
       <Grid container spacing={3}>
         {data.map(item => (

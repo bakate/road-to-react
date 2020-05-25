@@ -9,13 +9,14 @@ const VideosPage = () => {
   console.log('from video', search)
 
   const { status, data, error } = useAllVideos(search)
-  // if (!!search.query) {
-  //   return (
-  //     <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
-  //       Search For Something Papi
-  //     </Typography>
-  //   )
-  // }
+
+  if (!search.length) {
+    return (
+      <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
+        Search For Something Papi
+      </Typography>
+    )
+  }
   if (status === 'loading')
     return <p style={{ textAlign: 'center' }}>Loading...</p>
   if (status === 'error')
