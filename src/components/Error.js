@@ -1,36 +1,21 @@
-import { Button, Grid, Typography } from '@material-ui/core'
-import { ArrowBack } from '@material-ui/icons'
+import { Grid } from '@material-ui/core'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import CTA from './CTA'
+import TextDescription from './Text'
 
 const Error = () => {
   return (
     <Grid
       container
       spacing={1}
-      wrap="nowrap"
       justify="center"
       direction="column"
-      alignItems="center"
+      alignItems="stretch"
       alignContent="center"
     >
-      <Typography variant="h3" color="initial">
-        Humm! You Seem Lost{' '}
-        <span role="img" aria-label="crying">
-          😢
-        </span>
-        !
-      </Typography>
-      <Link to="/">
-        <Button
-          size="large"
-          color="secondary"
-          variant="contained"
-          startIcon={<ArrowBack />}
-        >
-          Retour
-        </Button>
-      </Link>
+      <TextDescription infos="Humm! You Seem Lost" />
+
+      <CTA infos="Back" back />
     </Grid>
   )
 }
