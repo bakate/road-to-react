@@ -1,16 +1,16 @@
-import { Typography } from '@material-ui/core'
 import React from 'react'
 import Form from '../components/Form'
+import TextDescription from '../components/Text'
 import { useInfos } from '../state-management/context'
 
 const UserPage = () => {
   const { user } = useInfos()
 
   return (
-    <Typography variant="h2" color="initial" style={{ textAlign: 'center' }}>
-      Sign {user.id ? 'In' : 'Up'}
+    <>
+      <TextDescription variant="h3" infos={`Sign ${user.id ? 'In' : 'Up'}`} />
       <Form />
-    </Typography>
+    </>
   )
 }
 

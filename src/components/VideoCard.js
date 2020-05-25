@@ -1,10 +1,11 @@
-import { Button, CardActions, Grid, makeStyles } from '@material-ui/core'
+import { CardActions, Grid, makeStyles } from '@material-ui/core'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
-import { DirectionsRun } from '@material-ui/icons'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import CTA from './CTA'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -45,14 +46,7 @@ export default function VideoMediaCard({
             to={`videos/${id}`}
             style={{ margin: '0 auto', marginBottom: '1rem' }}
           >
-            <Button
-              size="small"
-              color="primary"
-              variant="contained"
-              startIcon={<DirectionsRun />}
-            >
-              More Info
-            </Button>
+            <CTA infos="see more" run />
           </Link>
         </CardActions>
       </Card>

@@ -1,21 +1,17 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import React from 'react'
 import useAllVideos from '../components/Hooks/useAllVideos'
+import TextDescription from '../components/Text'
 import VideoMediaCard from '../components/VideoCard'
 import { useInfos } from '../state-management/context'
 
 const VideosPage = () => {
   const { search } = useInfos()
-  console.log('from video', search)
 
   const { status, data, error } = useAllVideos(search)
 
   if (!search.length) {
-    return (
-      <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
-        Search For Something Papi
-      </Typography>
-    )
+    return <TextDescription />
   }
   if (status === 'loading')
     return <p style={{ textAlign: 'center' }}>Loading...</p>
@@ -25,14 +21,9 @@ const VideosPage = () => {
   return (
     <>
       {data.length > 0 && (
-        <Typography
-          variant="h4"
-          gutterBottom
-          color="initial"
-          style={{ textAlign: 'center', textTransform: 'capitalize' }}
-        >
-          Here are your videos for: {search.toUpperCase()}
-        </Typography>
+        <TextDescription
+          infos={`Here are your videos for : ${search.toUpperCase()}`}
+        />
       )}
       <Grid container spacing={3}>
         {data.map(item => (

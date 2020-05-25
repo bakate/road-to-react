@@ -1,8 +1,8 @@
-import { Button, Card, CardActionArea, CardActions, CardMedia, Grid, Link } from '@material-ui/core'
-import { ArrowBack, DirectionsRun } from '@material-ui/icons'
+import { Card, CardActionArea, CardActions, CardMedia, Grid, Link } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import React from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import CTA from '../components/CTA'
 import useSingleVideo from '../components/Hooks/useSingleVideos'
 
 const useStyles = makeStyles(theme => ({
@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 const VideoDetailsPage = () => {
   const { id } = useParams()
   const classes = useStyles()
-  const history = useHistory()
 
   const { status, data, error } = useSingleVideo(Number(id))
   if (status === 'loading')
@@ -54,24 +53,10 @@ const VideoDetailsPage = () => {
         </CardActionArea>
 
         <CardActions className={classes.buttons}>
-          <Button
-            size="small"
-            startIcon={<ArrowBack />}
-            variant="contained"
-            color="primary"
-            onClick={() => history.replace('/videos')}
-          >
-            Back
-          </Button>
+          <CTA infos="back" back />
+
           <Link href={url} target="_blank" rel="noreferrer">
-            <Button
-              size="small"
-              variant="contained"
-              color="primary"
-              startIcon={<DirectionsRun />}
-            >
-              More Info
-            </Button>
+            <CTA infos="see more" run />
           </Link>
         </CardActions>
       </Card>

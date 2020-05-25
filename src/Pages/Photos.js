@@ -1,7 +1,8 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import React from 'react'
 import useAllPhotos from '../components/Hooks/useAllPix'
 import ImgMediaCard from '../components/PhotoCard'
+import TextDescription from '../components/Text'
 import { useInfos } from '../state-management/context'
 
 const PhotosPage = () => {
@@ -10,11 +11,7 @@ const PhotosPage = () => {
   console.log(search, 'from Photos')
 
   if (!search.length) {
-    return (
-      <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
-        Search For Something Papi
-      </Typography>
-    )
+    return <TextDescription />
   }
 
   if (status === 'loading')
@@ -25,14 +22,9 @@ const PhotosPage = () => {
   return (
     <>
       {data.length > 0 && (
-        <Typography
-          variant="h4"
-          gutterBottom
-          color="initial"
-          style={{ textAlign: 'center', textTransform: 'capitalize' }}
-        >
-          Here are your photos for: {search.toUpperCase()}.
-        </Typography>
+        <TextDescription
+          infos={`Here are your photos for : ${search.toUpperCase()}`}
+        />
       )}
       <Grid container spacing={3}>
         {data.map(item => (

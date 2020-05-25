@@ -1,9 +1,9 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Link } from '@material-ui/core'
-import Typography from '@material-ui/core/Typography'
-import { ArrowBack, DirectionsRun } from '@material-ui/icons'
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Link } from '@material-ui/core'
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import CTA from '../components/CTA'
 import getSinglePix from '../components/Hooks/useSinglePix'
+import TextDescription from '../components/Text'
 
 const PhotoDetailsPage = () => {
   const { id } = useParams()
@@ -30,10 +30,10 @@ const PhotoDetailsPage = () => {
             />
           </Link>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              This picture is broad to you by: {photographer}, you can check out
-              their profile through the link below
-            </Typography>
+            <TextDescription
+              infos={`This photo is broad to you by: ${photographer}.You can check
+              out their profile through the link below`}
+            />
           </CardContent>
         </CardActionArea>
         <CardActions
@@ -42,24 +42,9 @@ const PhotoDetailsPage = () => {
             justifyContent: 'center',
           }}
         >
-          <Button
-            size="small"
-            color="primary"
-            variant="contained"
-            startIcon={<ArrowBack />}
-            onClick={() => history.goBack()}
-          >
-            Back To Pix
-          </Button>
+          <CTA infos="back to pix" back />
           <Link target="_blank" rel="noreferrer" href={photographer_url}>
-            <Button
-              size="small"
-              color="primary"
-              variant="contained"
-              startIcon={<DirectionsRun />}
-            >
-              See More
-            </Button>
+            <CTA infos="see more" run />
           </Link>
         </CardActions>
       </Card>
