@@ -7,13 +7,15 @@ import { useInfos } from '../state-management/context'
 const PhotosPage = () => {
   const { search } = useInfos()
   const { data, error, status } = useAllPhotos(search)
-  if (!search) {
-    return (
-      <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
-        Search For Something Papi
-      </Typography>
-    )
-  }
+  console.log(search, 'from Photos')
+
+  // if (!!search.query) {
+  //   return (
+  //     <Typography variant="h4" color="initial" style={{ textAlign: 'center' }}>
+  //       Search For Something Papi
+  //     </Typography>
+  //   )
+  // }
 
   if (status === 'loading')
     return <p style={{ textAlign: 'center' }}>Loading...</p>

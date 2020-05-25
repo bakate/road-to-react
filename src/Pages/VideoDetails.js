@@ -34,7 +34,6 @@ const VideoDetailsPage = () => {
     return <p style={{ textAlign: 'center' }}>Error Papi...{error.message}</p>
 
   const { url, video_files: videoFiles, user, image: screenshot } = data || []
-  console.log(videoFiles)
 
   return (
     <Grid xs={12} container item justify="center">
