@@ -1,16 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+// import { ReactQueryConfigProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query-devtools'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { MamaProvider } from './state-management/context'
 
+// const queryConfig = {
+//   refetchAllOnWindowsFocus: true,
+//   retry: 1,
+//   staleTime: 60000,
+// }
+
 ReactDOM.render(
   <React.StrictMode>
-    <ReactQueryDevtools initialIsOpen={false} />
+    {/* <ReactQueryConfigProvider config={queryConfig}> */}
     <MamaProvider>
       <App />
     </MamaProvider>
+    <ReactQueryDevtools initialIsOpen={false} />
+    {/* </ReactQueryConfigProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 )

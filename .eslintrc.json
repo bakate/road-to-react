@@ -4,7 +4,9 @@
   },
   "extends": [
     "react-app",
-    "prettier/react"
+    "prettier/react",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -15,7 +17,9 @@
   },
   "plugins": [
     "react",
-    "prettier"
+    "prettier",
+    "testing-library",
+    "jest-dom"
   ],
   "rules": {
     "react/jsx-filename-extension": [
@@ -29,6 +33,9 @@
     ],
     // "react-hooks/rules-of-hooks": 0,
     "react/jsx-props-no-spreading": 0,
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debug": "warn"
   }
 }

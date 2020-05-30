@@ -5,8 +5,8 @@ const Infos = createContext()
 const nobody = {
   id: null,
   email: null,
-  username: null,
   password: null,
+  username: null,
   showPassword: false,
 }
 const getUserFromLocalStorage = () => {

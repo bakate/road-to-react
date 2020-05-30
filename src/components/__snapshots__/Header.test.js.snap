@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <button
+    class="yo"
+    data-testid="h1bb"
+    name="title"
+    type="button"
+  >
+    I'm Bakate
+  </button>
+</DocumentFragment>
+`;

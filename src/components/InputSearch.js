@@ -52,11 +52,11 @@ const InputSearch = () => {
 
   const { setSearch } = useInfos()
 
-  const { inputs, handleChange, resetForm } = useForm({ query: '' })
+  const { inputs, handleChange } = useForm({ query: '' })
 
   const handleSubmit = () => {
     setSearch(inputs.query)
-    resetForm({ query: '' })
+    // resetForm({ query: '' })
   }
   return (
     <Paper className={classes.search}>
