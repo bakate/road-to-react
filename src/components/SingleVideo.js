@@ -30,11 +30,12 @@ const SingleVideo = ({ videoDetails }) => {
         <CardActionArea>
           <CardMedia
             muted
+            controls
             frameBorder={0}
-            poster={screenshot}
             allowFullScreen
             title={user.name}
             component="iframe"
+            poster={screenshot}
             src={videoFiles[0].link}
             className={classes.card}
             style={{ backgroundImage: `url(/${screenshot})` }}

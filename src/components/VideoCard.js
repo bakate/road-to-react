@@ -6,16 +6,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CTA from './CTA'
 
-
 const useStyles = makeStyles(theme => ({
-  root: {
-    autoPlay: 'false',
-  },
   media: {
     height: 360,
     width: 640,
     objectFit: 'contain',
-    autoPlay: 'false',
   },
 }))
 
@@ -35,7 +30,8 @@ export default function VideoMediaCard({
             frameBorder={0}
             allowFullScreen
             component="iframe"
-            autoPlay={false}
+            controls
+            muted
             className={classes.media}
             src={videoFiles[0].link}
             allow="accelerometer;encrypted-media; gyroscope; picture-in-picture"
