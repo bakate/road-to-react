@@ -7,6 +7,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
+    flexWrap: 'row no-wrap',
     margin: theme.spacing(2),
   },
 }))

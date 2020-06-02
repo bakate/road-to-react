@@ -1,8 +1,9 @@
-import { CssBaseline, Paper } from '@material-ui/core'
+import { CssBaseline } from '@material-ui/core'
 import { red } from '@material-ui/core/colors'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Container from './components/Container'
 import Error from './components/Error'
 import Footer from './components/Footer'
 import NavBar from './components/NavBar'
@@ -15,7 +16,6 @@ import Private from './Pages/Private'
 import VideoDetails from './Pages/VideoDetails'
 import Videos from './Pages/Videos'
 import { useInfos } from './state-management/context'
-
 
 export default function App() {
   const { darkMode } = useInfos()
@@ -42,10 +42,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <NavBar />
-        <Paper
-          component="div"
-          style={{ margin: '0 auto 0rem auto', padding: '2rem 2rem' }}
-        >
+        <Container>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -72,7 +69,7 @@ export default function App() {
               <Error />
             </Route>
           </Switch>
-        </Paper>
+        </Container>
         <Footer />
       </ThemeProvider>
     </Router>
