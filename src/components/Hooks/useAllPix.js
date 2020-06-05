@@ -40,7 +40,7 @@ const AllPix = () => {
   }
   return (
     <>
-      {data.length === 0 && (
+      {!data.length && (
         <TextDescription
           infos={`Sorry, no photos for : ${search.toUpperCase()}`}
         />

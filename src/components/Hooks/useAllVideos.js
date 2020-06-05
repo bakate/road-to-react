@@ -13,8 +13,7 @@ const AllVideos = () => {
       data: { videos },
     } = await pexels.get('/videos/search', {
       params: {
-        page: 2,
-        per_page: 18,
+        page: 1,
         query: request,
         min_width: 250,
         min_duration: 10,
@@ -38,7 +37,7 @@ const AllVideos = () => {
 
   return (
     <>
-      {data.length === 0 && (
+      {!data.length && (
         <TextDescription
           infos={`Sorry, no videos for : ${search.toUpperCase()}`}
         />
