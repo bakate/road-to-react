@@ -14,12 +14,10 @@ import { MamaProvider } from './state-management/context'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <ReactQueryConfigProvider config={queryConfig}> */}
     <MamaProvider>
       <App />
     </MamaProvider>
     <ReactQueryDevtools initialIsOpen={false} />
-    {/* </ReactQueryConfigProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 )

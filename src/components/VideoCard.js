@@ -11,14 +11,13 @@ const useStyles = makeStyles(theme => ({
     height: 360,
     width: 640,
     objectFit: 'contain',
+    '&:hover': {
+      autoPlay: true,
+    },
   },
 }))
 
-export default function VideoMediaCard({
-  id,
-  video_files: videoFiles,
-  image: screenshot,
-}) {
+export default function VideoMediaCard({ id, video_files: videoFiles }) {
   const classes = useStyles()
 
   return (
@@ -26,12 +25,10 @@ export default function VideoMediaCard({
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
-            poster={screenshot}
             frameBorder={0}
             allowFullScreen
-            component="iframe"
+            component="video"
             controls
-            muted
             className={classes.media}
             src={videoFiles[0].link}
             allow="accelerometer;encrypted-media; gyroscope; picture-in-picture"

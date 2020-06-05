@@ -52,36 +52,38 @@ const InputSearch = () => {
 
   const { setSearch } = useInfos()
 
-  const { inputs, handleChange } = useForm({ query: '' })
+  const { inputs, handleChange, resetForm } = useForm({ query: '' })
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault()
     setSearch(inputs.query)
-    // resetForm({ query: '' })
+    resetForm({ query: '' })
   }
   return (
-    <Paper className={classes.search}>
-      <InputBase
-        type="text"
-        name="query"
-        value={inputs.query}
-        placeholder="Search..."
-        inputProps={{ 'aria-label': 'search' }}
-        onChange={handleChange}
-        classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput,
-        }}
-      />
-      <Divider className={classes.divider} orientation="vertical" />
-      <IconButton
-        type="submit"
-        onClick={handleSubmit}
-        className={classes.iconButton}
-        aria-label="search"
-      >
-        <SearchIcon />
-      </IconButton>
-    </Paper>
+    <form onSubmit={handleSubmit}>
+      <Paper className={classes.search}>
+        <InputBase
+          type="text"
+          name="query"
+          value={inputs.query}
+          placeholder="Search..."
+          inputProps={{ 'aria-label': 'search' }}
+          onChange={handleChange}
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }}
+        />
+        <Divider className={classes.divider} orientation="vertical" />
+        <IconButton
+          type="submit"
+          className={classes.iconButton}
+          aria-label="search"
+        >
+          <SearchIcon />
+        </IconButton>
+      </Paper>
+    </form>
   )
 }
 

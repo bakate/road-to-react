@@ -1470,11 +1470,6 @@
     "@testing-library/dom" "^7.2.2"
     "@types/testing-library__react" "^10.0.1"
 
-"@testing-library/user-event@^7.1.2":
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-7.2.1.tgz#2ad4e844175a3738cb9e7064be5ea070b8863a1c"
-  integrity sha512-oZ0Ib5I4Z2pUEcoo95cT1cr6slco9WY7yiPpG+RGNkj8YcYgJnM7pXmYmorNOReh8MIGcKSqXyeGjxnr8YiZbA==
-
 "@types/babel__core@^7.1.0":
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.6.tgz#16ff42a5ae203c9af1c6e190ed1f30f83207b610"
@@ -8976,10 +8971,10 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-query-devtools@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/react-query-devtools/-/react-query-devtools-1.1.5.tgz#0bd14abe28dcf807495acd65c1bec1665e2937ad"
-  integrity sha512-KGOjlDNn/OLUh7s5ECKs2Dv8y0TDiGgQbBv9SWxnIsoTmxWRV7Gk4OZ0L3sge3IgwpQJqkSOTFMOwQGsdX3mtA==
+react-query-devtools@^1.1.17:
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/react-query-devtools/-/react-query-devtools-1.1.17.tgz#ea9b51579a5bdbd34518e22efdfb4cb0e0a11eb6"
+  integrity sha512-KlXECp/rs7D3qS8aBSFFbu/ditsOOfbg9d73aSkkOQ488x7UjuK30QoD4dAR9kmz/ke+Hia73b+nkw65nbGtQg==
   dependencies:
     match-sorter "^4.1.0"
 
